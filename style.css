@@ -4,20 +4,35 @@ html {
 }
 
 body {
-    background-color: #DAF1DE;
+    background-color: #051f20;
     margin: 0;
     font-family: sans-serif;
+    color: #DAF1DE;
 }
 
 header {
-    background-color: #051F20;
     color: #DAF1DE;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+header:hover {
+    transform: translateY(5px);
+}
+
+header::before {
+    width: 100%;
+    height: 200%;
+    left: -60%;
+    transition-duration: 1s;
+}
+
+header:hover::before {
+    left: 100%;
 }
 
 ul {
@@ -44,7 +59,6 @@ ul li a {
 
 .hello-section h1 {
     font-size: xxx-large;
-    color: #0B2B26;
     font-weight: 900;
     
 }
@@ -56,7 +70,6 @@ ul li a {
 }
 
 .hello-section .text-hello {
-    color: #0B2B26;
     font-size: x-large;
     font-weight: 500;
 }
@@ -65,20 +78,22 @@ ul li a {
     width: 200px;
     font-size: xx-large;
     font-weight: 600;
-    background-color: #051f20;
+    backdrop-filter: blur(20px);
+    background-color: #0c3f415c;
+    border: 1px #18413b solid;
+    box-shadow: 0 0 11px 0px #145153;
     border-color: transparent;
     border-style: solid;
     color: #daf1de;
     padding: 10px;
     border-radius: 10px;
-    transition-duration: .2s;
+    transition-duration: .8s;
     cursor: pointer;
 }
 
 .hello-section button:hover {
-    background-color: #daf1de;
-    color: #051F20;
-    border-color: #051F20;
+    transform: translateY(-4px);
+    color: #ddf7e1;
 }
 
 .about-us {
@@ -87,17 +102,27 @@ ul li a {
     margin: auto;
     padding: 10px;
     margin-top: 15%;
+    overflow: hidden;
+    color: #DAF1DE;
+    
 }
+
+/* .about-us::before {
+    width: 120%;
+    height: 40%;
+    top: 100px;
+    border-radius: 10px;
+    left: 10%;
+    
+} */
 
 .about-us h2 {
     font-size: xxx-large;
-    color: #0B2B26;
     font-weight: 900;
     text-align: center;
 }
 
 .about-us p {
-    color: #0B2B26;
     font-size: x-large;
     font-weight: 500;
 }
@@ -113,20 +138,61 @@ ul li a {
 
 .features-section h1 {
     font-size: xxx-large;
-    color: #0B2B26;
+
     font-weight: 900;
 }
 
 .features-section .feature {
     width: 80%;
-    background-image: linear-gradient(95deg, #051f20, #769781);
     padding: 30px;
     color: #daf1de;
     direction: rtl;
     margin: auto;
-    border-radius: 20px;
-    box-shadow: 0 0 11px 0px #051f20;
+    overflow: hidden;
+
 }
+
+/* .feature::before {
+    width: 100%;
+    height: 40%;
+    top: 0;
+    left: 10%;
+} */
+
+
+/* مشترك بين ثلاث عناصر */
+
+.feature , .about-us , .rate , header {
+    backdrop-filter: blur(10px);
+    background-color: #0c3f415c;;
+    border: 1px #18413b solid;
+    box-shadow: 0 0 11px 0px #145153;
+    border-radius: 18px;
+    transition-duration: 1s;
+    position: relative;
+}
+
+.feature , .about-us , .rate {
+    box-shadow: 0 0 11px 0px #145153, inset 0 0 20px 15px #217c7e45;  
+}
+
+.feature:hover,.about-us:hover,.rate:hover {
+    transform: translateY(-10px);
+}
+
+
+/* .feature::before, .rate::before, .about-us::before, */  header::before {
+    content: "";
+    position: absolute;
+    background-color: #daf1de1f;
+    z-index: -2;
+    border-radius: 10px;
+    transform: rotate(216deg);
+    overflow: hidden;
+    filter: blur(15px);
+}
+
+/* أنتهى الكود */
 
 .features-section .feature h2 {
     margin-bottom: 0;
@@ -159,10 +225,18 @@ ul li a {
     padding: 24px;
     box-sizing: border-box;
     text-align: center;
-    background-image: linear-gradient(78deg, #051f20, #6f8f7a);
-    border-radius: 15px;
     color: #daf1de;
+    overflow: hidden;
 }
+
+/* .rating .rate::before {
+    width: 200%;
+    height: 20%;
+    top: 39px;
+    border-radius: 10px;
+    left: -70%;
+
+} */
 
 .rating .rate .rating-stars {
     font-size: large;
@@ -175,7 +249,7 @@ ul li a {
 
 
 footer {
-    background-color: #051f20;
+    background-color: #030b0b;
     padding: 10px;
     margin-top: 10%;
     border-top-left-radius: 20px;
@@ -184,7 +258,7 @@ footer {
 }
 
 footer .text-footer {
-    color: #8eb69bc4;
+    color: #daf1de57;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -202,16 +276,41 @@ footer p {
 
 /* media responsive */
 
+
+@media (min-width: 1080px) {
+    .about-us {
+        padding: 30px;
+    }
+
+
+}
+
 @media (max-width: 870px) {
     header ul {
         display: none;
     }
-
+    .about-us::before {
+        visibility: hidden;
+    }
 }
 
 @media (max-width: 525px) {
     .content .hello-section {
         padding: 20px;
         width: auto;
+    }
+
+    .about-us h2 {
+        font-size: xxx-large;
+        font-weight: 900;
+        text-align: center;
+        margin: 10px;
+    }
+    .about-us p {
+        font-size: large;
+        font-weight: 300;
+    }
+    .feature::before {
+        width: 110%;
     }
 }
