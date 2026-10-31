@@ -299,18 +299,23 @@ footer p {
         padding: 20px;
         width: auto;
     }
-
+    .hello-section button {
+        font-size: larger;
+    }
+    .about-us {
+        width: auto;
+    }
     .about-us h2 {
-        font-size: xxx-large;
+        font-size: xx-large;
         font-weight: 900;
         text-align: center;
         margin: 10px;
     }
     .about-us p {
-        font-size: large;
+        font-size: medium;
         font-weight: 300;
     }
-    .feature::before {
-        width: 110%;
+    .feature .text-of-feature .fa-solid {
+        display: none;
     }
 }
